@@ -71,3 +71,5 @@ const Menu: React.FC = () => {
     </IonPage>
   );
 };
+
+export default Menu;
