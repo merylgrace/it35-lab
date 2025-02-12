@@ -1,12 +1,16 @@
 import { 
+  IonButton,
     IonButtons,
       IonContent, 
-      IonHeader, 
+      IonHeader,
+      IonIcon, 
       IonMenuButton, 
       IonPage, 
       IonTitle, 
       IonToolbar 
   } from '@ionic/react';
+
+  import { logInOutline } from 'ionicons/icons';
   
   const Login: React.FC = () => {
     return (
@@ -20,6 +24,13 @@ import {
           </IonToolbar>
         </IonHeader>
         <IonContent fullscreen>
+
+          {/* Login Button */}
+        <IonButton routerLink="/it35-lab" routerDirection="forward" expand="full">
+          <IonIcon icon={logInOutline} slot="start"></IonIcon>
+          Login
+        </IonButton>
+
         </IonContent>
       </IonPage>
     );
