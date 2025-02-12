@@ -1,39 +1,37 @@
-import { 
+import {
   IonButton,
-    IonButtons,
-      IonContent, 
-      IonHeader,
-      IonIcon, 
-      IonMenuButton, 
-      IonPage, 
-      IonTitle, 
-      IonToolbar 
-  } from '@ionic/react';
+  IonButtons,
+  IonContent,
+  IonHeader,
+  IonMenuButton,
+  IonPage,
+  IonTitle,
+  IonToolbar,
+  useIonRouter
+} from '@ionic/react';
 
-  import { logInOutline } from 'ionicons/icons';
-  
-  const Login: React.FC = () => {
-    return (
-      <IonPage>
-        <IonHeader>
-          <IonToolbar>
-            <IonButtons slot='start'>
-              <IonMenuButton></IonMenuButton>
-            </IonButtons>
-            <IonTitle>Login</IonTitle>
-          </IonToolbar>
-        </IonHeader>
-        <IonContent fullscreen>
-
-          {/* Login Button */}
-        <IonButton routerLink="/it35-lab" routerDirection="forward" expand="full">
-          <IonIcon icon={logInOutline} slot="start"></IonIcon>
+function Login() {
+  const navigation = useIonRouter();
+  const doLogin = () => {
+    navigation.push('/it35-lab/app', 'forward', 'replace');
+  };
+  return (
+    <IonPage>
+      <IonHeader>
+        <IonToolbar>
+          <IonButtons slot='start'>
+            <IonMenuButton></IonMenuButton>
+          </IonButtons>
+          <IonTitle>Login</IonTitle>
+        </IonToolbar>
+      </IonHeader>
+      <IonContent className='ion-padding'>
+        <IonButton onClick={() => doLogin()} expand="full">
           Login
         </IonButton>
+      </IonContent>
+    </IonPage>
+  );
+}
 
-        </IonContent>
-      </IonPage>
-    );
-  };
-  
-  export default Login;
+export default Login;
