@@ -33,13 +33,13 @@ function Login() {
       </IonHeader>
       <IonContent className='ion-padding'>
         <div style={{ textAlign: 'center', marginBottom: '20px' }}>
-          <IonIcon icon={personCircleOutline} style={{ fontSize: '60px' }} />
+          <IonIcon icon={personCircleOutline} style={{ fontSize: '80px' }} />
         </div>
         <IonItem>
           <IonInput label="Username" placeholder="Enter Username"></IonInput>
         </IonItem>
         <IonItem>
-          <IonInput label="Password input" type="password" value="password"></IonInput>
+          <IonInput label="Password" type="password" placeholder="Enter Password"></IonInput>
         </IonItem>
         <IonButton onClick={() => doLogin()} expand="full">
           Login
