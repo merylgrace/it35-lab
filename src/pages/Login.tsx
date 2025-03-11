@@ -1,4 +1,5 @@
 import {
+  IonAlert,
   IonButton,
   IonButtons,
   IonContent,
@@ -14,18 +15,35 @@ import {
 } from '@ionic/react';
 
 import { personCircleOutline } from 'ionicons/icons';
+import { useState } from 'react';
 
 function Login() {
   const navigation = useIonRouter();
-  const doLogin = () => {
-    navigation.push('/it35-lab/app', 'forward', 'replace');
-  };
-  const doRegister = () => {
-    navigation.push('/it35-lab/Register', 'forward', 'replace');
-  };
+    const [showToast, setShowToast] = useState(false);
+    const [showAlert, setShowAlert] = useState(false);
+    const [email, setEmail] = useState ('');
+    const [password, setPassword] = useState('');
 
+    const user_email = 'hihi@gmail.com';
+    const user_pwd = 'useruser';
 
+    const doLogin = () => {
+      if (email !== user_email || password !== user_pwd) {
+        setShowAlert(true);
+        return;
+      } else {
 
+        console.log(email);
+        console.log(password);
+
+        setShowToast(true);
+        setTimeout(() => {
+          navigation.push('/it35-lab/app', 'forward', 'replace')
+        }, 1500);
+      }
+    }
+
+  
   return (
     <IonPage>
       <IonHeader>
@@ -49,14 +67,10 @@ function Login() {
         <IonButton onClick={() => doLogin()} expand="full">
           Login
         </IonButton>
-        <p> No account? <span
-        onClick={doRegister}
-      >
-        Register here
-      </span></p>
+       
       </IonContent>
     </IonPage>
   );
 }
-
+//insert ionalert and everything here
 export default Login;
