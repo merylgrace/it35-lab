@@ -19,31 +19,31 @@ import { useState } from 'react';
 
 function Login() {
   const navigation = useIonRouter();
-    const [showToast, setShowToast] = useState(false);
-    const [showAlert, setShowAlert] = useState(false);
-    const [email, setEmail] = useState ('');
-    const [password, setPassword] = useState('');
+  const [showToast, setShowToast] = useState(false);
+  const [showAlert, setShowAlert] = useState(false);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-    const user_email = 'hihi@gmail.com';
-    const user_pwd = 'useruser';
+  const user_email = 'hihi@gmail.com';
+  const user_pwd = 'useruser';
 
-    const doLogin = () => {
-      if (email !== user_email || password !== user_pwd) {
-        setShowAlert(true);
-        return;
-      } else {
+  const doLogin = () => {
+    if (email !== user_email || password !== user_pwd) {
+      setShowAlert(true);
+      return;
+    } else {
 
-        console.log(email);
-        console.log(password);
+      console.log(email);
+      console.log(password);
 
-        setShowToast(true);
-        setTimeout(() => {
-          navigation.push('/it35-lab/app', 'forward', 'replace')
-        }, 1500);
-      }
+      setShowToast(true);
+      setTimeout(() => {
+        navigation.push('/it35-lab/app', 'forward', 'replace')
+      }, 1500);
     }
+  }
 
-  
+
   return (
     <IonPage>
       <IonHeader>
@@ -67,7 +67,9 @@ function Login() {
         <IonButton onClick={() => doLogin()} expand="full">
           Login
         </IonButton>
-       
+        <IonButton routerLink="/it35-lab/register" expand="full" fill="clear" shape='round'>
+          Don't have an account? Register here
+        </IonButton>
       </IonContent>
     </IonPage>
   );
