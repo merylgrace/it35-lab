@@ -178,7 +178,7 @@ import React, { useState } from 'react';
                      }}>
                          <IonTitle style={{
                              marginTop:'35%'
-                         }}>Registration Successful 🎉</IonTitle>
+                         }}>Registration Successful</IonTitle>
                          <IonText>
                              <p>Your account has been created successfully.</p>
                              <p>Please check your email address.</p>

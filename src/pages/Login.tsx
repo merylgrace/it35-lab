@@ -10,19 +10,27 @@ import {
   IonToast,  
   useIonRouter
 } from '@ionic/react';
-import { logoIonic, } from 'ionicons/icons';
+import { happyOutline } from 'ionicons/icons';
 import { useState } from 'react';
 
   const Login: React.FC = () => {
     const navigation = useIonRouter();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [showAlert, setShowAlert] = useState(false);
+    const [showAlert, setShowAlert] = useState(true);
     const [errorMessage, setErrorMessage] = useState('');
-    const [showToast, setShowToast] = useState(false);
+    const [showToast, setShowToast] = useState(true);
 
     const doLogin = async () => {
-      navigation.push('/it35-lab/app', 'forward', 'replace');
+      if (email === "meryl@grace.com" && password === "987654321") {
+        setShowToast(true);
+        setTimeout(() => {
+          navigation.push('/it35-lab/app', 'forward', 'replace');
+        }, 1500);
+      } else {
+        setErrorMessage("Invalid email or password.");
+        setShowAlert(true);
+      }
     };
     
     return (
@@ -33,7 +41,7 @@ import { useState } from 'react';
                    flexDirection:'column',
                    alignItems: 'center',
                    justifyContent: 'center',
-                   marginTop:'25%'
+                   marginTop:'19%'
                  }}>
                    <IonAvatar
                      style={{
@@ -44,21 +52,9 @@ import { useState } from 'react';
                        height: '150px',
                        borderRadius: '50%', 
                        overflow: 'hidden' 
-                     }}
-                   >
-                     {/*
-                     <img
-                       alt="Silhouette of a person's head"
-                       src="https://ionicframework.com/docs/img/demos/avatar.svg"
-                       style={{
-                         width: '100%', 
-                         height: '100%',
-                         objectFit: 'cover' 
-                       }}
-                     />
-                     */}
+                     }}>
                       <IonIcon 
-                       icon={logoIonic}
+                       icon={happyOutline}
                        color='primary'
                        style={{ fontSize: '120px', color: '#6c757d' }} 
                      />
@@ -67,7 +63,7 @@ import { useState } from 'react';
                        display: 'flex',
                        alignItems: 'center',
                        justifyContent: 'center',
-                     }}>USER LOGIN</h1>
+                     }}>Welcome!</h1>
                    <IonInput
                      label="Email" 
                      labelPlacement="floating" 
