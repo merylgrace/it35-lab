@@ -18,9 +18,9 @@ const Login: React.FC = () => {
   const navigation = useIonRouter();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [showAlert, setShowAlert] = useState(true);
+  const [showAlert, setShowAlert] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
-  const [showToast, setShowToast] = useState(true);
+  const [showToast, setShowToast] = useState(false);
 
   const doLogin = async () => {
     const { error } = await supabase.auth.signInWithPassword({ email, password });
