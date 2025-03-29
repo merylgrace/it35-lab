@@ -78,8 +78,6 @@ const Login: React.FC = () => {
           <IonInput style={{
             marginTop: '10px',
           }}
-            label="Password"
-            labelPlacement="floating"
             fill="outline"
             type="password"
             placeholder="Enter Password"
