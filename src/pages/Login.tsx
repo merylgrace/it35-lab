@@ -78,9 +78,11 @@ const Login: React.FC = () => {
           <IonInput style={{
             marginTop: '10px',
           }}
+            label="Password"
+            labelPlacement="floating"
             fill="outline"
             type="password"
-            placeholder="Password"
+            placeholder="Enter Password"
             value={password}
             onIonChange={e => setPassword(e.detail.value!)}
           ><IonInputPasswordToggle slot="end"></IonInputPasswordToggle></IonInput>
