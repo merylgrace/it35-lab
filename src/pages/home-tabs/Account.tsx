@@ -16,7 +16,7 @@ const Account: React.FC = () => {
                     <IonButtons slot='start'>
                         <IonMenuButton></IonMenuButton>
                     </IonButtons>
-                    <IonTitle>My-Account</IonTitle>
+                    <IonTitle>My Account</IonTitle>
                 </IonToolbar>
             </IonHeader>
             <IonContent fullscreen>
