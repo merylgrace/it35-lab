@@ -28,7 +28,7 @@ const Account: React.FC = () => {
                         height: '100%',
                     }}
                 >
-                    My-Account
+                    My Account
                 </div>
             </IonContent>
         </IonPage>
