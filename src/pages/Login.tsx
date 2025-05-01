@@ -2,11 +2,15 @@ import {
   IonAlert,
   IonAvatar,
   IonButton,
+  IonCard,
+  IonCardContent,
   IonContent,
   IonIcon,
   IonInput,
   IonInputPasswordToggle,
   IonPage,
+  IonText,
+  IonTitle,
   IonToast,
   useIonRouter
 } from '@ionic/react';
@@ -37,63 +41,66 @@ const Login: React.FC = () => {
 
   return (
     <IonPage>
-      <IonContent className='ion-padding'>
-        <div style={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
-          marginTop: '19%'
-        }}>
-          <IonAvatar
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              width: '150px',
-              height: '150px',
-              borderRadius: '50%',
-              overflow: 'hidden'
-            }}>
-            <IonIcon
-              icon={happyOutline}
-              color='primary'
-              style={{ fontSize: '120px', color: '#6c757d' }}
-            />
-          </IonAvatar>
-          <h1 style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}>Welcome!</h1>
-          <IonInput
-            label="Email"
-            labelPlacement="floating"
-            fill="outline"
-            type="email"
-            placeholder="Enter Email"
-            value={email}
-            onIonChange={e => setEmail(e.detail.value!)}
-          />
-          <IonInput style={{
-            marginTop: '10px',
-          }}
-            fill="outline"
-            type="password"
-            placeholder="Enter Password"
-            value={password}
-            onIonChange={e => setPassword(e.detail.value!)}
-          ><IonInputPasswordToggle slot="end"></IonInputPasswordToggle></IonInput>
+      <IonContent className="ion-padding">
+        <div style={{ maxWidth: '400px', margin: '0 auto', marginTop: '10%' }}>
+          <IonCard>
+            <IonCardContent>
+              <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '10px' }}>
+                <IonIcon
+                  icon={happyOutline}
+                  style={{ fontSize: '80px', color: 'var(--ion-color-primary)' }}
+                />
+              </div>
+              <IonTitle className="ion-text-center">Welcome!</IonTitle>
+              <IonText color="medium" className="ion-text-center">
+                <p>Please sign in to continue</p>
+              </IonText>
+
+              <IonInput
+                style={{ marginTop: '20px' }}
+                label="Email"
+                labelPlacement="stacked"
+                fill="outline"
+                type="email"
+                placeholder="Enter Email"
+                value={email}
+                onIonChange={(e) => setEmail(e.detail.value!)}
+              />
+              <IonInput
+                style={{ marginTop: '15px' }}
+                label="Password"
+                labelPlacement="stacked"
+                fill="outline"
+                type="password"
+                placeholder="Enter Password"
+                value={password}
+                onIonChange={(e) => setPassword(e.detail.value!)}
+              >
+                <IonInputPasswordToggle slot="end" />
+              </IonInput>
+
+              <IonButton
+                style={{ marginTop: '25px' }}
+                expand="block"
+                shape="round"
+                onClick={doLogin}
+              >
+                Login
+              </IonButton>
+
+              <IonButton
+                expand="block"
+                fill="clear"
+                shape="round"
+                routerLink="/it35-lab/register"
+              >
+                Don't have an account? Register
+              </IonButton>
+            </IonCardContent>
+          </IonCard>
         </div>
-        <IonButton onClick={doLogin} expand="full" shape='round'>
-          Login
-        </IonButton>
 
-        <IonButton routerLink="/it35-lab/register" expand="full" fill="clear" shape='round'>
-          Don't have an account? Register here
-        </IonButton>
-
-        {/* IonAlert for displaying login errors */}
+        {/* Alert for login error */}
         <IonAlert
           isOpen={showAlert}
           onDidDismiss={() => setShowAlert(false)}
@@ -102,7 +109,7 @@ const Login: React.FC = () => {
           buttons={['OK']}
         />
 
-        {/* IonToast for success message */}
+        {/* Toast for login success */}
         <IonToast
           isOpen={showToast}
           onDidDismiss={() => setShowToast(false)}
