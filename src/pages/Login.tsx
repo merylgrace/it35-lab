@@ -1,20 +1,16 @@
 import {
   IonAlert,
-  IonAvatar,
   IonButton,
   IonCard,
   IonCardContent,
   IonContent,
-  IonIcon,
   IonInput,
   IonInputPasswordToggle,
   IonPage,
-  IonText,
   IonTitle,
   IonToast,
   useIonRouter
 } from '@ionic/react';
-import { happyOutline } from 'ionicons/icons';
 import { useState } from 'react';
 import { supabase } from '../utils/supabaseClient';
 
@@ -45,16 +41,17 @@ const Login: React.FC = () => {
         <div style={{ maxWidth: '400px', margin: '0 auto', marginTop: '10%' }}>
           <IonCard>
             <IonCardContent>
-              <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '10px' }}>
-                <IonIcon
-                  icon={happyOutline}
-                  style={{ fontSize: '80px', color: 'var(--ion-color-primary)' }}
-                />
+              <IonTitle className="ion-text-center">Welcome to MingkApp!</IonTitle>
+              <div style={{ textAlign: "center", marginBottom: "16px" }}>
+              <p style={{ fontSize: "1.1rem" }}>
+                It's so good to see <strong>you</strong> today.
+              </p>
+              <img
+                src="https://i.pinimg.com/originals/ae/30/a3/ae30a397a019e541bc4cd88764a171ef.gif"
+                alt="cute cat giff"
+                style={{ width: "70px", borderRadius: "8px", marginTop: "4px" }}
+              />
               </div>
-              <IonTitle className="ion-text-center">Welcome!</IonTitle>
-              <IonText color="medium" className="ion-text-center">
-                <p>Please sign in to continue</p>
-              </IonText>
 
               <IonInput
                 style={{ marginTop: '20px' }}
