@@ -1,13 +1,29 @@
-import { useState, useEffect } from 'react';
 import {
-  IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton,
-  IonInput, IonLabel, IonModal, IonFooter, IonCard, IonCardContent,
-  IonCardHeader, IonCardSubtitle, IonCardTitle, IonAlert, IonText,
-  IonAvatar, IonCol, IonGrid, IonRow, IonIcon, IonPopover
+  IonContent, 
+  IonHeader, 
+  IonTitle,
+  IonToolbar, 
+  IonButton,
+  IonInput, 
+  IonLabel, 
+  IonModal, 
+  IonFooter, 
+  IonCard, 
+  IonCardContent,
+  IonCardHeader, 
+  IonCardSubtitle, 
+  IonCardTitle, 
+  IonAlert,
+  IonAvatar, 
+  IonCol, 
+  IonRow, 
+  IonIcon, 
+  IonPopover
 } from '@ionic/react';
 import { User } from '@supabase/supabase-js';
 import { supabase } from '../utils/supabaseClient';
 import { pencil, trash } from 'ionicons/icons';
+import { useState, useEffect } from 'react';
 
 interface Post {
   post_id: string;
@@ -235,7 +251,7 @@ const FeedContainer = () => {
                   <img
                     src={supabase.storage.from('cat-memes').getPublicUrl(post.post_image_url).data.publicUrl}
                     alt="Post"
-                    style={{ width: '150px', marginTop: '10px', borderRadius: '8px' }}
+                    style={{ width: '250px', marginTop: '10px', borderRadius: '8px' }}
                   />
                 )}
 
